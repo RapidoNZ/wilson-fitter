@@ -1,0 +1,761 @@
+{
+  "heads": {
+    "drivers": [
+      {
+        "app_name": "DYNAPWR",
+        "image": "DYNAPWR Carbon_Normal.png"
+      },
+      {
+        "app_name": "DYNAPWR Carbon",
+        "image": "DYNAPWR Carbon_Normal.png",
+        "confirmed_enum": 1
+      },
+      {
+        "app_name": "DYNAPWR LS",
+        "image": "DYNAPWR LS_Normal.png"
+      },
+      {
+        "app_name": "DYNAPWR Max",
+        "image": "DYNAPWR Max_Normal.png"
+      },
+      {
+        "app_name": "DYNAPWR Max+",
+        "image": "DynaPWR_Max_Plus_Driver_Hero_Normal.png"
+      }
+    ],
+    "irons": {
+      "rh": [
+        {
+          "app_name": "DYNAPWR",
+          "excel_name": "DP",
+          "sku": "WZGH0N527RHI05",
+          "sku_upright": "WZGH0N527RUI05",
+          "year": "2025",
+          "dex": "RH",
+          "makeup_start": 5
+        },
+        {
+          "app_name": "DYNAPWR Max",
+          "excel_name": "DP MAX",
+          "sku": "WZGH0N528RHI05",
+          "sku_upright": "WZGH0N528RUI05",
+          "year": "2025",
+          "dex": "RH",
+          "makeup_start": 5
+        },
+        {
+          "app_name": "DYNAPWR Forged",
+          "excel_name": "DP FORGED",
+          "sku": "WZGH0N612RHI05",
+          "year": "2026",
+          "dex": "RH",
+          "makeup_start": 5
+        },
+        {
+          "app_name": "STAFF MODEL XB",
+          "excel_name": "XB",
+          "sku": "WZGH0N615RHI05",
+          "year": "2026",
+          "dex": "RH",
+          "rh_only": true
+        },
+        {
+          "app_name": "STAFF MODEL CB",
+          "excel_name": "CB",
+          "sku": "WZGH0N614RHI05",
+          "year": "2026",
+          "dex": "RH",
+          "rh_only": true,
+          "makeup_start": 5
+        },
+        {
+          "app_name": "STAFF MODEL BLADES",
+          "excel_name": "BLADE",
+          "sku": "WZGH0N613RHI05",
+          "year": "2026",
+          "dex": "RH",
+          "rh_only": true,
+          "makeup_start": 5
+        }
+      ],
+      "lh": [
+        {
+          "app_name": "DYNAPWR",
+          "excel_name": "DP",
+          "sku": "WZGH0N527LHI05",
+          "year": "2025",
+          "dex": "LH",
+          "makeup_start": 5
+        },
+        {
+          "app_name": "DYNAPWR Max",
+          "excel_name": "DP MAX",
+          "sku": "WZGH0N528LHI05",
+          "year": "2025",
+          "dex": "LH",
+          "makeup_start": 5
+        },
+        {
+          "app_name": "DYNAPWR Forged",
+          "excel_name": "DP FORGED",
+          "sku": "WZGH0N612LHI05",
+          "year": "2026",
+          "dex": "LH",
+          "makeup_start": 5
+        }
+      ]
+    }
+  },
+  "shafts": {
+    "steel": [
+      {
+        "app_name": "KBS Max",
+        "excel_name": "KBS MAX",
+        "flexes": {
+          "R": "WZGS0N01810XXX",
+          "S": "WZGS0N01810XXX"
+        },
+        "type": "steel"
+      },
+      {
+        "app_name": "KBS Tour Lite",
+        "excel_name": "KBS TOUR LITE",
+        "flexes": {
+          "R": "WZGS0N123RSXXX",
+          "S": "WZGS0N123RSXXX",
+          "X": "WZGS0N123XIXXX"
+        },
+        "type": "steel"
+      },
+      {
+        "app_name": "KBS Max HL",
+        "excel_name": "KBS MAX HL",
+        "flexes": {
+          "R": "WZGS0N532RSXXX",
+          "S": "WZGS0N532RSXXX"
+        },
+        "type": "steel"
+      },
+      {
+        "app_name": "KBS C-Taper Lite",
+        "excel_name": "KBS C TAPER LITE",
+        "flexes": {
+          "R": "WZGSON618IR0IR",
+          "S": "WZGSON616ISI05",
+          "X": "WZGSON616IXI05"
+        },
+        "type": "steel"
+      },
+      {
+        "app_name": "KBS C-Taper",
+        "excel_name": "KBS C TAPER",
+        "flexes": {
+          "R": "WZGSON613IRI05",
+          "S": "WZGSON614ISI05",
+          "X": "WZGSON615IXI05"
+        },
+        "type": "steel"
+      },
+      {
+        "app_name": "True Temper Project X",
+        "excel_name": "PROJECT X",
+        "flexes": {
+          "S": "WZGSON611ISI05",
+          "X": "WZGSON612IXI05"
+        },
+        "type": "steel"
+      },
+      {
+        "app_name": "True Temper Dynamic Gold Mid 115",
+        "excel_name": "DG115",
+        "flexes": {
+          "R": "WZGS0N411IRI05",
+          "S": "WZGS0N411ISI05",
+          "X": "WZGS0N411IXI05"
+        },
+        "type": "steel"
+      },
+      {
+        "app_name": "True Temper Dynamic Gold 120",
+        "excel_name": "DG120",
+        "flexes": {
+          "R": "WZGS0N990IR390",
+          "S": "WZGS0N990IS390",
+          "X": "WZGS0N990XI390"
+        },
+        "type": "steel"
+      },
+      {
+        "app_name": "True Temper Dynamic Gold",
+        "excel_name": "DG130",
+        "flexes": {
+          "R": "WZGS0N838IR390",
+          "S": "WZGS0N838IS390",
+          "X": "WZGS0N840IX390"
+        },
+        "type": "steel"
+      },
+      {
+        "app_name": "Nippon Modus 105",
+        "excel_name": "MODUS 105",
+        "flexes": {
+          "R": "WZGS0N530IR395",
+          "S": "WZGS0N530IS395",
+          "X": "WZGS0N530IX395"
+        },
+        "type": "steel"
+      },
+      {
+        "app_name": "Nippon Modus 110",
+        "excel_name": "MODUS 110",
+        "flexes": {
+          "R": "WZGS0N533IR395",
+          "S": "WZGS0N533IS395",
+          "X": "WZGS0N533IX395"
+        },
+        "type": "steel"
+      },
+      {
+        "app_name": "Nippon Modus 120",
+        "excel_name": "MODUS 120",
+        "flexes": {
+          "R": "WZGS0N531IR395",
+          "S": "WZGS0N531IS395",
+          "X": "WZGS0N531IX395"
+        },
+        "type": "steel"
+      }
+    ],
+    "graphite": [
+      {
+        "app_name": "KBS Max 65",
+        "excel_name": "KBS MAX 65",
+        "flexes": {
+          "R": "WZGS0N528IRXXX"
+        },
+        "type": "graphite"
+      },
+      {
+        "app_name": "KBS Max 55",
+        "excel_name": "KBS MAX 55",
+        "flexes": {
+          "A": "WZGS0N528ISXXX"
+        },
+        "type": "graphite"
+      },
+      {
+        "app_name": "KBS Max 45",
+        "excel_name": "KBS MAX 45",
+        "flexes": {
+          "L": "WZGS0N528ILXXX"
+        },
+        "type": "graphite"
+      },
+      {
+        "app_name": "UST Mamiya Recoil Dart HDC 70",
+        "excel_name": "HDC70",
+        "flexes": {
+          "R": "WZGS0N527IRXXX",
+          "S": "WZGS0N527ISXXX"
+        },
+        "type": "graphite"
+      }
+    ],
+    "app_only": [
+      {
+        "app_name": "KBS $-Taper",
+        "type": "steel",
+        "category": "tour",
+        "image": "KBS $-Taper_Normal.png"
+      },
+      {
+        "app_name": "KBS C-Taper Limited Black",
+        "type": "steel",
+        "category": "tour",
+        "image": "KBS C-Taper Limited Black_Normal.png"
+      },
+      {
+        "app_name": "KBS Tour",
+        "type": "steel",
+        "category": "tour",
+        "image": "KBS Tour_Normal.png"
+      },
+      {
+        "app_name": "KBS Tour Lite Black",
+        "type": "steel",
+        "category": "players",
+        "image": "KBS Tour Lite Black_Normal.png"
+      },
+      {
+        "app_name": "KBS Tour V",
+        "type": "steel",
+        "category": "tour",
+        "image": "KBS Tour V_Normal.png"
+      },
+      {
+        "app_name": "KBS PGI 70",
+        "type": "steel",
+        "category": "players",
+        "image": "KBS PGI 70_Normal.png"
+      },
+      {
+        "app_name": "KBS PGI 80",
+        "type": "steel",
+        "category": "players",
+        "image": "KBS PGI 80_Normal.png"
+      },
+      {
+        "app_name": "KBS TGI 60",
+        "type": "graphite",
+        "category": "game_improvement",
+        "image": "KBS TGI 60_Normal.png"
+      },
+      {
+        "app_name": "KBS TGI 70",
+        "type": "graphite",
+        "category": "game_improvement",
+        "image": "KBS TGI 70_Normal.png"
+      },
+      {
+        "app_name": "KBS TGI 80",
+        "type": "graphite",
+        "category": "game_improvement",
+        "image": "KBS TGI 80_Normal.png"
+      },
+      {
+        "app_name": "KBS TGI 90",
+        "type": "graphite",
+        "category": "players",
+        "image": "KBS TGI 90_Normal.png"
+      },
+      {
+        "app_name": "KBS TGI 100",
+        "type": "graphite",
+        "category": "players",
+        "image": "KBS TGI 100_Normal.png"
+      },
+      {
+        "app_name": "KBS TGI 110",
+        "type": "graphite",
+        "category": "players",
+        "image": "KBS TGI 110_Normal.png"
+      },
+      {
+        "app_name": "KBS Max Ultralite",
+        "type": "graphite",
+        "category": "game_improvement",
+        "image": "KBS Max Ultralite_Normal.png"
+      },
+      {
+        "app_name": "True Temper Project X LZ",
+        "type": "steel",
+        "category": "tour",
+        "image": "True Temper Project X LZ_Normal.png"
+      },
+      {
+        "app_name": "True Temper Dynamic Gold Tour Issue",
+        "type": "steel",
+        "category": "tour",
+        "image": "True Temper Dynamic Gold Tour Issue_Normal.png"
+      },
+      {
+        "app_name": "Nippon Zelos 7",
+        "type": "steel",
+        "category": "game_improvement",
+        "image": "Nippon Zelos 7_Normal.png"
+      },
+      {
+        "app_name": "Nippon Zelos 8",
+        "type": "steel",
+        "category": "game_improvement",
+        "image": "Nippon Zelos 8_Normal.png"
+      },
+      {
+        "app_name": "Aerotech SteelFiber i80",
+        "type": "graphite",
+        "category": "game_improvement",
+        "image": "Aerotech SteelFiber i80_Normal.png"
+      },
+      {
+        "app_name": "Aerotech SteelFiber i95",
+        "type": "graphite",
+        "category": "players",
+        "image": "Aerotech SteelFiber i95_Normal.png"
+      },
+      {
+        "app_name": "Aerotech SteelFiber i110",
+        "type": "graphite",
+        "category": "tour",
+        "image": "Aerotech SteelFiber i110_Normal.png"
+      },
+      {
+        "app_name": "UST Mamiya Recoil Dart 65",
+        "type": "graphite",
+        "category": "game_improvement",
+        "image": "UST Mamiya Recoil Dart 65_Normal.png"
+      },
+      {
+        "app_name": "UST Mamiya Recoil Dart 75",
+        "type": "graphite",
+        "category": "players",
+        "image": "UST Mamiya Recoil Dart 75_Normal.png"
+      },
+      {
+        "app_name": "UST Mamiya Recoil Dart 90",
+        "type": "graphite",
+        "category": "players",
+        "image": "UST Mamiya Recoil Dart 90_Normal.png"
+      },
+      {
+        "app_name": "UST Mamiya Recoil Dart 105",
+        "type": "graphite",
+        "category": "tour",
+        "image": "UST Mamiya Recoil Dart 105_Normal.png"
+      }
+    ],
+    "driver": [
+      {
+        "app_name": "Linq",
+        "submodels": [
+          "PowerCore Blue",
+          "PowerCore White",
+          "Red"
+        ]
+      },
+      {
+        "app_name": "Denali",
+        "submodels": [
+          "Black",
+          "Blue",
+          "Red"
+        ]
+      },
+      {
+        "app_name": "Ventus",
+        "submodels": [
+          "Black",
+          "Blue",
+          "Red"
+        ]
+      },
+      {
+        "app_name": "Ventus TR",
+        "submodels": [
+          "Black",
+          "Blue",
+          "Red"
+        ]
+      },
+      {
+        "app_name": "Ventus TR Velocore",
+        "submodels": [
+          "Black",
+          "Blue",
+          "Red"
+        ]
+      },
+      {
+        "app_name": "Ventus Velocore Plus",
+        "submodels": [
+          "Black",
+          "Blue",
+          "Red"
+        ]
+      },
+      {
+        "app_name": "HZRDUS",
+        "submodels": [
+          "Blue",
+          "Gen5 Black",
+          "Smoke Red"
+        ]
+      },
+      {
+        "app_name": "EvenFlow",
+        "submodels": [
+          "Riptide"
+        ]
+      },
+      {
+        "app_name": "Graphite Design",
+        "submodels": [
+          "DI",
+          "UB",
+          "VF",
+          "XC"
+        ]
+      },
+      {
+        "app_name": "Helium",
+        "submodels": [
+          "NCT"
+        ]
+      },
+      {
+        "app_name": "Kaili",
+        "submodels": [
+          "White"
+        ]
+      },
+      {
+        "app_name": "Project X",
+        "submodels": [
+          "Evenflow"
+        ]
+      }
+    ]
+  },
+  "grips": {
+    "with_skus": [
+      {
+        "app_name": "Lamkin Crossline 360",
+        "excel_name": "CROSSLINE 360",
+        "sizes": {
+          "undersize": "WZGR0N521ALXXX",
+          "standard": "WZGR0N521XXSTD",
+          "midsize": "WZGR0N521XXMID"
+        },
+        "hasSku": true
+      },
+      {
+        "app_name": "Golf Pride Tour Velvet",
+        "excel_name": "TOUR VELVET",
+        "sizes": {
+          "standard": "WZGR0N932AMXXX",
+          "midsize": "WZGR0N933XXMID",
+          "oversize": "WZGR0N934XXOVR"
+        },
+        "hasSku": true
+      },
+      {
+        "app_name": "Golf Pride Z-Grip",
+        "excel_name": "Z GRIP",
+        "sizes": {
+          "standard": "WZGR0N411XXSTD"
+        },
+        "hasSku": true
+      },
+      {
+        "app_name": "SuperStroke REVL Element",
+        "excel_name": "SS ELEMENT",
+        "sizes": {
+          "standard": "WZGR0N713AAXXX",
+          "midsize": "WZGR0N714AAXXX"
+        },
+        "hasSku": true
+      },
+      {
+        "app_name": "SuperStroke Cord",
+        "excel_name": "SS CORD",
+        "sizes": {
+          "standard": "WZGR0N721AAXXX",
+          "midsize": "WZGR0N722AAXXX"
+        },
+        "hasSku": true
+      },
+      {
+        "app_name": "SuperStroke Crossline 2.0",
+        "excel_name": "SS CROSSLINE 2.0",
+        "sizes": {
+          "standard": "WZGR0N718AAXXX",
+          "midsize": "WZGR0N719AAXXX"
+        },
+        "hasSku": true
+      },
+      {
+        "app_name": "SuperStroke REVL Player",
+        "excel_name": "SS PLAYER",
+        "sizes": {
+          "standard": "WZGR0N711AAXXX",
+          "midsize": "WZGR0N712AAXXX"
+        },
+        "hasSku": true
+      },
+      {
+        "app_name": "SuperStroke REVL Comfort",
+        "excel_name": "SS COMFORT",
+        "sizes": {
+          "oversize": "WZGR0N717AAXXX"
+        },
+        "hasSku": true
+      },
+      {
+        "app_name": "Wilson Midsize",
+        "excel_name": "MIDSIZE",
+        "sizes": {
+          "midsize": "WZGR0N521XXMID"
+        },
+        "hasSku": true
+      }
+    ],
+    "app_only": []
+  },
+  "config_options": {
+    "dexterity": [
+      "RH",
+      "LH"
+    ],
+    "lie_angles": [
+      "2 FLAT",
+      "1 FLAT",
+      "STANDARD",
+      "1 UPRIGHT",
+      "2 UPRIGHT"
+    ],
+    "length_adjustments": [
+      "-1",
+      "-0.75",
+      "-0.5",
+      "-0.25",
+      "STD",
+      "0.25",
+      "0.5",
+      "0.75",
+      "1",
+      "1.25",
+      "1.5"
+    ],
+    "grip_wraps": [
+      "0 WRAPS",
+      "1 WRAP",
+      "2 WRAPS",
+      "3 WRAPS",
+      "4 WRAPS"
+    ],
+    "iron_makeups": [
+      "3",
+      "4",
+      "5",
+      "6",
+      "7",
+      "8",
+      "9",
+      "P",
+      "G",
+      "S"
+    ]
+  },
+  "app_to_sku_mapping": {
+    "heads": {},
+    "shafts": {},
+    "grips": {}
+  },
+  "driver_config": {
+    "loft_options": [
+      "8.0",
+      "9.0",
+      "10.5",
+      "12.0"
+    ],
+    "adapter_settings": [
+      "D1",
+      "D2",
+      "STD",
+      "U1",
+      "U2"
+    ],
+    "weight_configs": [
+      "DRAW",
+      "NEUTRAL",
+      "FADE"
+    ],
+    "shaft_flex_options": [
+      "L",
+      "A",
+      "R",
+      "S",
+      "X"
+    ],
+    "confirmed_fitting_example": {
+      "head": "DYNAPWR Carbon",
+      "head_enum": 1,
+      "shaft_model": "Linq",
+      "shaft_submodel": "PowerCore Blue",
+      "shaft_submodel_enum": 2,
+      "shaft_weight": "50",
+      "shaft_weight_enum": 2,
+      "shaft_flex": "S",
+      "shaft_flex_enum": 4,
+      "loft": "10.5",
+      "loft_enum": 3,
+      "adapter_setting": "STD",
+      "adapter_setting_enum": 3,
+      "weight_config": "NEUTRAL",
+      "weight_config_enum": 1
+    }
+  },
+  "fitting_questionnaire": {
+    "height_brackets": [
+      "4'8 and under",
+      "4'9\"-5'",
+      "5'1\"-5'2\"",
+      "5'3\"-5'4\"",
+      "5'5\"-5'7\"",
+      "5'8\"-5'11\"",
+      "6'-6'2\"",
+      "6'3\"-6'4\"",
+      "6'5\"-6'6\""
+    ],
+    "fields": {
+      "handicap": [
+        "level1",
+        "level2",
+        "level3",
+        "level4",
+        "level5"
+      ],
+      "distance_7_iron": [
+        "level1",
+        "level2",
+        "level3",
+        "level4",
+        "level5"
+      ],
+      "current_shape": [
+        "level1",
+        "level2",
+        "level3",
+        "level4",
+        "level5"
+      ],
+      "preferred_shape": [
+        "level1",
+        "level2",
+        "level3",
+        "level4",
+        "level5"
+      ],
+      "goals": [
+        "level1",
+        "level2",
+        "level3",
+        "level4",
+        "level5"
+      ]
+    }
+  },
+  "api": {
+    "supabase_url": "https://epwglhhefxispnnngbzh.supabase.co",
+    "anon_key": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImVwd2dsaGhlZnhpc3Bubm5nYnpoIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTMzODA5MTgsImV4cCI6MjA2ODk1NjkxOH0.NlgDYt_Vm2K76mScmblo3BNRsCAUdnO8RoSgIW3NB9w",
+    "tables": [
+      "golfers",
+      "clubs",
+      "shots",
+      "trackman_ball_events",
+      "unhandled_events"
+    ],
+    "foresight_api": "https://api.foresightsports.com",
+    "foresight_sdk_key": "UBJJ...(redacted)"
+  },
+  "sku_patterns": {
+    "heads": "WZGH0N{model}{dex}{lie}I{makeup}",
+    "shafts": "WZGS0N{model}{flex}{type}",
+    "grips": "WZGR0N{model}{size}",
+    "notes": {
+      "dex": "R=RH, L=LH",
+      "lie": "H=Standard, U=Upright",
+      "flex_codes": "L=Ladies, A=Senior, R=Regular, S=Stiff, X=Extra Stiff",
+      "makeup_05": "I05 = starts at 5-iron"
+    }
+  }
+}
