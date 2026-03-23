@@ -1,13 +1,10 @@
 import catalog from '../data/catalog.json'
 
-// Build a map of actual image filenames for fuzzy matching
-const imageMap = {}
+const base = import.meta.env.BASE_URL
 
 function resolveImage(dir, appName) {
-  // Try exact match first
   const exact = `${appName}_Normal.png`
-  const path = `/images/${dir}/${exact}`
-  return path
+  return `${base}images/${dir}/${exact}`
 }
 
 export function useCatalog() {
@@ -34,11 +31,11 @@ export function useCatalog() {
   const getHeadImage = (appName, clubType) => {
     if (clubType === 'driver') {
       const head = catalog.heads.drivers.find(h => h.app_name === appName)
-      if (head?.image) return `/images/heads/${head.image}`
+      if (head?.image) return `${base}images/heads/${head.image}`
     }
     // Iron heads - special cases
-    if (appName === 'DYNAPWR Max') return `/images/heads/DYNAPWR Max_Normal.png`
-    if (appName === 'DYNAPWR Max Iron') return `/images/heads/DYNAPWR MAX Iron_Normal.png`
+    if (appName === 'DYNAPWR Max') return `${base}images/heads/DYNAPWR Max_Normal.png`
+    if (appName === 'DYNAPWR Max Iron') return `${base}images/heads/DYNAPWR MAX Iron_Normal.png`
     return resolveImage('heads', appName)
   }
 
