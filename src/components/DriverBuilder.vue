@@ -4,6 +4,14 @@
       <h2>DRIVER BUILDER</h2>
 
       <div class="field">
+        <label>Dexterity</label>
+        <div class="toggle-wrap">
+          <button :class="{ active: selectedDex === 'RH' }" @click="selectedDex = 'RH'">RH</button>
+          <button :class="{ active: selectedDex === 'LH' }" @click="selectedDex = 'LH'">LH</button>
+        </div>
+      </div>
+
+      <div class="field">
         <label>Head</label>
         <select v-model="selectedHead">
           <option :value="null" disabled>Select head...</option>
@@ -74,7 +82,7 @@ import ImagePanel from './ImagePanel.vue'
 import BuildSummary from './BuildSummary.vue'
 
 const {
-  selectedHead, selectedShaftModel, selectedSubmodel,
+  selectedDex, selectedHead, selectedShaftModel, selectedSubmodel,
   selectedFlex, selectedLoft, selectedAdapter, selectedWeight,
   heads, shaftModels, submodels,
   driverConfig,

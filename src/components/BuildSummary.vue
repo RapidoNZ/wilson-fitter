@@ -52,6 +52,7 @@ const displayItems = computed(() => {
   }
 
   return {
+    'Dexterity': b.dexterity,
     'Head': b.head,
     'Shaft': `${b.shaftModel || ''} ${b.shaftSubmodel || ''}`.trim(),
     'Flex': b.flex,

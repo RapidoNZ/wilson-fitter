@@ -4,6 +4,7 @@ import { useCatalog } from './useCatalog'
 export function useDriverBuilder() {
   const { getDriverHeads, getDriverShafts, getHeadImage, getDriverShaftImage, driverConfig } = useCatalog()
 
+  const selectedDex = ref('RH')
   const selectedHead = ref(null)
   const selectedShaftModel = ref(null)
   const selectedSubmodel = ref(null)
@@ -34,6 +35,7 @@ export function useDriverBuilder() {
 
   const build = computed(() => ({
     type: 'Driver',
+    dexterity: selectedDex.value,
     head: selectedHead.value?.app_name,
     shaftModel: selectedShaftModel.value?.app_name,
     shaftSubmodel: selectedSubmodel.value,
@@ -44,7 +46,7 @@ export function useDriverBuilder() {
   }))
 
   return {
-    selectedHead, selectedShaftModel, selectedSubmodel,
+    selectedDex, selectedHead, selectedShaftModel, selectedSubmodel,
     selectedFlex, selectedLoft, selectedAdapter, selectedWeight,
     heads, shaftModels, submodels,
     driverConfig,
