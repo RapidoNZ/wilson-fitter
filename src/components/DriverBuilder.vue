@@ -4,6 +4,11 @@
       <h2>DRIVER BUILDER</h2>
 
       <div class="field">
+        <label>Customer / Order #</label>
+        <input v-model="customer" type="text" placeholder="Customer name or order #" />
+      </div>
+
+      <div class="field">
         <label>Dexterity</label>
         <div class="toggle-wrap">
           <button :class="{ active: selectedDex === 'RH' }" @click="selectedDex = 'RH'">RH</button>
@@ -66,17 +71,39 @@
             :class="{ active: selectedWeight === w }" @click="selectedWeight = w">{{ w }}</button>
         </div>
       </div>
+
+      <div class="field">
+        <label>Grip Size</label>
+        <select v-model="selectedGripSize">
+          <option v-for="s in gripSizeOptions" :key="s" :value="s">{{ s }}</option>
+        </select>
+      </div>
+
+      <div class="field">
+        <label>Grip Model</label>
+        <select v-model="selectedGrip">
+          <option :value="null" disabled>Select grip...</option>
+          <option v-for="g in grips" :key="g.app_name" :value="g">
+            {{ g.excel_name || g.app_name }}
+          </option>
+        </select>
+      </div>
+
+      <div class="field">
+        <label>Notes</label>
+        <textarea v-model="notes" placeholder="Free text notes..." rows="3"></textarea>
+      </div>
     </div>
 
     <div class="right-panel">
       <ImagePanel :items="imageItems" />
-      <BuildSummary :build="build" />
+      <BuildSummary :build="build" :notes="notes" :customer="customer" />
     </div>
   </div>
 </template>
 
 <script setup>
-import { computed } from 'vue'
+import { ref, computed } from 'vue'
 import { useDriverBuilder } from '../composables/useDriverBuilder'
 import ImagePanel from './ImagePanel.vue'
 import BuildSummary from './BuildSummary.vue'
@@ -84,15 +111,21 @@ import BuildSummary from './BuildSummary.vue'
 const {
   selectedDex, selectedHead, selectedShaftModel, selectedSubmodel,
   selectedFlex, selectedLoft, selectedAdapter, selectedWeight,
-  heads, shaftModels, submodels,
+  selectedGrip, selectedGripSize,
+  heads, shaftModels, submodels, grips,
   driverConfig,
-  headImage, shaftImage,
+  headImage, shaftImage, gripImage,
   build,
 } = useDriverBuilder()
+
+const notes = ref('')
+const customer = ref('')
+const gripSizeOptions = ['UNDERSIZE', 'STANDARD', 'MIDSIZE', 'OVERSIZE']
 
 const imageItems = computed(() => [
   { label: 'Head', src: headImage.value },
   { label: 'Shaft', src: shaftImage.value },
+  { label: 'Grip', src: gripImage.value },
 ])
 </script>
 
@@ -103,12 +136,14 @@ h2 { font-size: 1rem; letter-spacing: 0.2em; margin-bottom: 1.5rem; color: #e318
 .right-panel { display: flex; flex-direction: column; gap: 1rem; }
 .field { display: flex; flex-direction: column; gap: 0.3rem; }
 .field label { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.1em; color: #888; }
-.field select {
+.field select, .field textarea, .field input[type="text"] {
   background: #2a2a2a; border: 1px solid #444; border-radius: 6px;
   padding: 0.6rem 0.8rem; color: #f0f0f0; font-size: 0.9rem;
   font-family: inherit; cursor: pointer;
 }
-.field select:focus { outline: none; border-color: #e31837; }
+.field input[type="text"] { cursor: text; }
+.field textarea { resize: vertical; cursor: text; }
+.field select:focus, .field textarea:focus, .field input[type="text"]:focus { outline: none; border-color: #e31837; }
 .toggle-wrap { display: flex; gap: 0.4rem; flex-wrap: wrap; }
 .toggle-wrap button {
   background: #2a2a2a; border: 1px solid #444; border-radius: 6px;

@@ -2,7 +2,7 @@ import { ref, computed, watch } from 'vue'
 import { useCatalog } from './useCatalog'
 
 export function useDriverBuilder() {
-  const { getDriverHeads, getDriverShafts, getHeadImage, getDriverShaftImage, driverConfig } = useCatalog()
+  const { getDriverHeads, getDriverShafts, getGrips, getHeadImage, getDriverShaftImage, getGripImage, driverConfig } = useCatalog()
 
   const selectedDex = ref('RH')
   const selectedHead = ref(null)
@@ -12,9 +12,12 @@ export function useDriverBuilder() {
   const selectedLoft = ref(null)
   const selectedAdapter = ref('STD')
   const selectedWeight = ref('NEUTRAL')
+  const selectedGrip = ref(null)
+  const selectedGripSize = ref('STANDARD')
 
   const heads = computed(() => getDriverHeads())
   const shaftModels = computed(() => getDriverShafts())
+  const grips = computed(() => getGrips())
 
   const submodels = computed(() => {
     if (!selectedShaftModel.value) return []
@@ -33,6 +36,16 @@ export function useDriverBuilder() {
     return getDriverShaftImage(selectedShaftModel.value.app_name, selectedSubmodel.value)
   })
 
+  const gripImage = computed(() => {
+    if (!selectedGrip.value) return null
+    return getGripImage(selectedGrip.value.app_name)
+  })
+
+  const gripSku = computed(() => {
+    if (!selectedGrip.value?.sizes || !selectedGripSize.value) return null
+    return selectedGrip.value.sizes[selectedGripSize.value.toLowerCase()] || null
+  })
+
   const build = computed(() => ({
     type: 'Driver',
     dexterity: selectedDex.value,
@@ -43,14 +56,18 @@ export function useDriverBuilder() {
     loft: selectedLoft.value,
     adapterSetting: selectedAdapter.value,
     weightConfig: selectedWeight.value,
+    grip: selectedGrip.value?.excel_name || selectedGrip.value?.app_name,
+    gripSize: selectedGripSize.value,
+    gripSku: gripSku.value,
   }))
 
   return {
     selectedDex, selectedHead, selectedShaftModel, selectedSubmodel,
     selectedFlex, selectedLoft, selectedAdapter, selectedWeight,
-    heads, shaftModels, submodels,
+    selectedGrip, selectedGripSize,
+    heads, shaftModels, submodels, grips,
     driverConfig,
-    headImage, shaftImage,
+    headImage, shaftImage, gripImage,
     build,
   }
 }

@@ -14,6 +14,10 @@ export function useCatalog() {
 
   const getDriverHeads = () => catalog.heads.drivers
 
+  const getWedgeHeads = (dex) => {
+    return catalog.heads.wedges?.[dex.toLowerCase()] || []
+  }
+
   const getIronShafts = (type) => {
     const withSkus = type === 'steel' ? catalog.shafts.steel : catalog.shafts.graphite
     const appOnly = (catalog.shafts.app_only || []).filter(s => s.type === type)
@@ -61,11 +65,13 @@ export function useCatalog() {
 
   const configOptions = catalog.config_options
   const driverConfig = catalog.driver_config
+  const wedgeConfig = catalog.wedge_config
 
   return {
     catalog,
     getIronHeads,
     getDriverHeads,
+    getWedgeHeads,
     getIronShafts,
     getDriverShafts,
     getGrips,
@@ -75,5 +81,6 @@ export function useCatalog() {
     getGripImage,
     configOptions,
     driverConfig,
+    wedgeConfig,
   }
 }

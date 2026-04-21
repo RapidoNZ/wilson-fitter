@@ -5,6 +5,7 @@
       <button class="back" @click="clubType = null">&larr; Back</button>
       <IronBuilder v-if="clubType === 'iron'" />
       <DriverBuilder v-if="clubType === 'driver'" />
+      <WedgeBuilder v-if="clubType === 'wedge'" />
     </div>
   </div>
 </template>
@@ -14,6 +15,7 @@ import { ref } from 'vue'
 import ClubTypeSelector from './components/ClubTypeSelector.vue'
 import IronBuilder from './components/IronBuilder.vue'
 import DriverBuilder from './components/DriverBuilder.vue'
+import WedgeBuilder from './components/WedgeBuilder.vue'
 
 const clubType = ref(null)
 </script>

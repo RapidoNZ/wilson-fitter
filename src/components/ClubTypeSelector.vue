@@ -11,6 +11,10 @@
         <span class="card-title">IRONS</span>
         <span class="card-desc">Custom iron set fitting</span>
       </button>
+      <button class="card" :class="{ active: modelValue === 'wedge' }" @click="$emit('update:modelValue', 'wedge')">
+        <span class="card-title">WEDGES</span>
+        <span class="card-desc">Custom wedge fitting</span>
+      </button>
     </div>
   </div>
 </template>

@@ -104,7 +104,36 @@
           "makeup_start": 5
         }
       ]
+    },
+    "wedges": {
+      "rh": [
+        {
+          "app_name": "STAFF MODEL WEDGE",
+          "excel_name": "SM WEDGE",
+          "sku": "WZGH0N701RHW00",
+          "dex": "RH"
+        },
+        {
+          "app_name": "DYNAPWR WEDGE",
+          "excel_name": "DP WEDGE",
+          "sku": "WZGH0N702RHW00",
+          "dex": "RH"
+        }
+      ],
+      "lh": [
+        {
+          "app_name": "STAFF MODEL WEDGE",
+          "excel_name": "SM WEDGE",
+          "sku": "WZGH0N701LHW00",
+          "dex": "LH"
+        }
+      ]
     }
+  },
+  "wedge_config": {
+    "lofts": ["46", "48", "50", "52", "54", "56", "58", "60"],
+    "bounces": ["6", "8", "10", "12", "14"],
+    "grinds": ["STD", "LOW", "MID", "WIDE"]
   },
   "shafts": {
     "steel": [

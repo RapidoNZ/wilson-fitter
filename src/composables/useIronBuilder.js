@@ -14,6 +14,8 @@ export function useIronBuilder() {
   const selectedLie = ref('STANDARD')
   const selectedLength = ref('STD')
   const selectedWraps = ref('0 WRAPS')
+  const comboSet = ref(false)
+  const perClubHeads = ref({})
 
   const heads = computed(() => getIronHeads(dex.value))
   const shafts = computed(() => getIronShafts(shaftType.value))
@@ -30,7 +32,7 @@ export function useIronBuilder() {
   })
 
   // Reset cascading selections
-  watch(dex, () => { selectedHead.value = null })
+  watch(dex, () => { selectedHead.value = null; perClubHeads.value = {} })
   watch(shaftType, () => { selectedShaft.value = null })
   watch(selectedShaft, () => {
     // Keep flex if available in new shaft, otherwise reset
@@ -74,11 +76,27 @@ export function useIronBuilder() {
     return getGripImage(selectedGrip.value.app_name)
   })
 
+  // Per-club head resolution for combo sets
+  const resolveClubHead = (club) => {
+    const override = perClubHeads.value[club]
+    return override || selectedHead.value
+  }
+  const resolveClubSku = (club) => {
+    const head = resolveClubHead(club)
+    if (!head) return null
+    const lie = selectedLie.value
+    if ((lie === '1 UPRIGHT' || lie === '2 UPRIGHT') && head.sku_upright) return head.sku_upright
+    return head.sku || null
+  }
+
   const build = computed(() => ({
     type: 'Iron',
     dexterity: dex.value.toUpperCase(),
     head: selectedHead.value?.excel_name || selectedHead.value?.app_name,
     headSku: headSku.value,
+    comboSet: comboSet.value,
+    resolveClubHead,
+    resolveClubSku,
     shaft: selectedShaft.value?.excel_name || selectedShaft.value?.app_name,
     shaftType: shaftType.value,
     flex: selectedFlex.value,
@@ -94,6 +112,7 @@ export function useIronBuilder() {
   return {
     dex, selectedHead, shaftType, selectedShaft, selectedFlex,
     selectedGrip, selectedGripSize, selectedLie, selectedLength, selectedWraps,
+    comboSet, perClubHeads,
     heads, shafts, grips,
     availableFlexes, availableGripSizes,
     configOptions,
