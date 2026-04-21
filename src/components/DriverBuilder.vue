@@ -4,11 +4,6 @@
       <h2>DRIVER BUILDER</h2>
 
       <div class="field">
-        <label>Customer / Order #</label>
-        <input v-model="customer" type="text" placeholder="Customer name or order #" />
-      </div>
-
-      <div class="field">
         <label>Dexterity</label>
         <div class="toggle-wrap">
           <button :class="{ active: selectedDex === 'RH' }" @click="selectedDex = 'RH'">RH</button>
@@ -97,7 +92,10 @@
 
     <div class="right-panel">
       <ImagePanel :items="imageItems" />
-      <BuildSummary :build="build" :notes="notes" :customer="customer" />
+      <BuildSummary :build="build" :notes="notes" />
+      <button class="add-btn" :disabled="!canAdd" @click="addToCart">
+        {{ canAdd ? 'Add to Order' : 'Complete selections to add' }}
+      </button>
     </div>
   </div>
 </template>
@@ -105,8 +103,12 @@
 <script setup>
 import { ref, computed } from 'vue'
 import { useDriverBuilder } from '../composables/useDriverBuilder'
+import { useOrder } from '../composables/useOrder'
 import ImagePanel from './ImagePanel.vue'
 import BuildSummary from './BuildSummary.vue'
+
+const emit = defineEmits(['added'])
+const { addItem } = useOrder()
 
 const {
   selectedDex, selectedHead, selectedShaftModel, selectedSubmodel,
@@ -119,7 +121,6 @@ const {
 } = useDriverBuilder()
 
 const notes = ref('')
-const customer = ref('')
 const gripSizeOptions = ['UNDERSIZE', 'STANDARD', 'MIDSIZE', 'OVERSIZE']
 
 const imageItems = computed(() => [
@@ -127,6 +128,16 @@ const imageItems = computed(() => [
   { label: 'Shaft', src: shaftImage.value },
   { label: 'Grip', src: gripImage.value },
 ])
+
+const canAdd = computed(() =>
+  !!build.value.head && !!build.value.shaftModel && !!build.value.flex && !!build.value.loft && !!build.value.grip
+)
+
+function addToCart() {
+  if (!canAdd.value) return
+  addItem(build.value, { notes: notes.value })
+  emit('added')
+}
 </script>
 
 <style scoped>
@@ -151,6 +162,13 @@ h2 { font-size: 1rem; letter-spacing: 0.2em; margin-bottom: 1.5rem; color: #e318
   font-size: 0.8rem; transition: all 0.15s;
 }
 .toggle-wrap button.active { background: #e31837; border-color: #e31837; color: #fff; }
+.add-btn {
+  margin-top: 0.5rem; padding: 0.8rem 1rem; background: #e31837; color: #fff;
+  border: none; border-radius: 6px; font-family: inherit; font-size: 0.9rem;
+  letter-spacing: 0.1em; cursor: pointer; font-weight: 600;
+}
+.add-btn:disabled { background: #333; color: #666; cursor: not-allowed; }
+.add-btn:not(:disabled):hover { background: #c41530; }
 @media (max-width: 768px) {
   .builder { grid-template-columns: 1fr; }
 }

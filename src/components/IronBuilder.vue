@@ -3,11 +3,6 @@
     <div class="form-panel">
       <h2>CUSTOM IRON SET BUILDER</h2>
 
-      <div class="field">
-        <label>Customer / Order #</label>
-        <input v-model="customer" type="text" placeholder="Customer name or order #" />
-      </div>
-
       <!-- 1. DEXTERITY -->
       <div class="field">
         <label>Dexterity</label>
@@ -134,7 +129,10 @@
 
     <div class="right-panel">
       <ImagePanel :items="imageItems" />
-      <BuildSummary :build="build" :makeUp="orderedMakeUp" :notes="notes" :customer="customer" />
+      <BuildSummary :build="build" :makeUp="orderedMakeUp" :notes="notes" />
+      <button class="add-btn" :disabled="!canAdd" @click="addToCart">
+        {{ canAdd ? 'Add to Order' : 'Complete selections to add' }}
+      </button>
     </div>
   </div>
 </template>
@@ -142,8 +140,12 @@
 <script setup>
 import { ref, computed } from 'vue'
 import { useIronBuilder } from '../composables/useIronBuilder'
+import { useOrder } from '../composables/useOrder'
 import ImagePanel from './ImagePanel.vue'
 import BuildSummary from './BuildSummary.vue'
+
+const emit = defineEmits(['added'])
+const { addItem } = useOrder()
 
 const {
   dex, selectedHead, shaftType, selectedShaft, selectedFlex,
@@ -157,11 +159,20 @@ const {
 } = useIronBuilder()
 
 const notes = ref('')
-const customer = ref('')
 
 const makeUpOptions = ['3', '4', '5', '6', '7', '8', '9', 'PW', 'GW', 'SW']
 const selectedMakeUp = ref(['5', '6', '7', '8', '9', 'PW', 'GW', 'SW'])
 const orderedMakeUp = computed(() => makeUpOptions.filter(c => selectedMakeUp.value.includes(c)))
+
+const canAdd = computed(() =>
+  !!build.value.head && !!build.value.shaft && !!build.value.grip && orderedMakeUp.value.length > 0
+)
+
+function addToCart() {
+  if (!canAdd.value) return
+  addItem(build.value, { makeUp: orderedMakeUp.value, notes: notes.value })
+  emit('added')
+}
 
 function setClubHead(club, sku) {
   if (!sku) {
@@ -216,6 +227,13 @@ h2 { font-size: 1rem; letter-spacing: 0.2em; margin-bottom: 1.5rem; color: #e318
 .checkbox-label.inline { background: none; border: none; padding: 0.3rem 0; color: #aaa; cursor: pointer; }
 .checkbox-label.inline input { display: inline-block; margin-right: 0.4rem; }
 .checkbox-label.inline:has(input:checked) { background: none; color: #e31837; }
+.add-btn {
+  margin-top: 0.5rem; padding: 0.8rem 1rem; background: #e31837; color: #fff;
+  border: none; border-radius: 6px; font-family: inherit; font-size: 0.9rem;
+  letter-spacing: 0.1em; cursor: pointer; font-weight: 600;
+}
+.add-btn:disabled { background: #333; color: #666; cursor: not-allowed; }
+.add-btn:not(:disabled):hover { background: #c41530; }
 .toggle { display: flex; gap: 0.5rem; flex-wrap: wrap; }
 .toggle button {
   background: #2a2a2a; border: 1px solid #444; border-radius: 6px;

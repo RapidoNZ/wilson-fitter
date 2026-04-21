@@ -1,7 +1,7 @@
 <template>
   <div class="selector">
-    <h1>WILSON CLUB FITTER</h1>
-    <p class="subtitle">Select your club type to begin</p>
+    <h2>ADD A CLUB</h2>
+    <p class="subtitle">Pick a club type to configure and add to the order</p>
     <div class="cards">
       <button class="card" :class="{ active: modelValue === 'driver' }" @click="$emit('update:modelValue', 'driver')">
         <span class="card-title">DRIVER</span>
@@ -26,8 +26,8 @@ defineEmits(['update:modelValue'])
 
 <style scoped>
 .selector { text-align: center; padding: 2rem 0; }
-h1 { font-size: 2rem; letter-spacing: 0.3em; margin-bottom: 0.5rem; }
-.subtitle { color: #888; margin-bottom: 2rem; }
+h2 { font-size: 1.1rem; letter-spacing: 0.3em; margin-bottom: 0.5rem; color: #e31837; }
+.subtitle { color: #888; margin-bottom: 2rem; font-size: 0.9rem; }
 .cards { display: flex; gap: 1.5rem; justify-content: center; flex-wrap: wrap; }
 .card {
   background: #2a2a2a; border: 2px solid #3a3a3a; border-radius: 12px;

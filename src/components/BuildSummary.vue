@@ -1,10 +1,6 @@
 <template>
   <div class="summary" v-if="hasSelections">
-    <h3>BUILD SUMMARY</h3>
-    <div v-if="customer" class="customer">
-      <span class="key">Customer / Order</span>
-      <span class="value">{{ customer }}</span>
-    </div>
+    <h3>BUILD PREVIEW</h3>
     <div class="grid">
       <template v-for="(value, key) in displayItems" :key="key">
         <span class="key">{{ key }}</span>
@@ -34,7 +30,6 @@ const props = defineProps({
   build: Object,
   makeUp: { type: Array, default: () => [] },
   notes: { type: String, default: '' },
-  customer: { type: String, default: '' },
 })
 
 const hasSelections = computed(() => {
@@ -123,7 +118,6 @@ const comboRows = computed(() => {
 h3 { font-size: 0.85rem; letter-spacing: 0.2em; color: #e31837; margin-bottom: 1rem; }
 h4 { font-size: 0.75rem; letter-spacing: 0.2em; color: #e31837; margin: 1rem 0 0.6rem; }
 .grid { display: grid; grid-template-columns: 120px 1fr; gap: 0.4rem 1rem; }
-.customer { display: grid; grid-template-columns: 120px 1fr; gap: 0.4rem 1rem; margin-bottom: 0.8rem; padding-bottom: 0.8rem; border-bottom: 1px solid #333; }
 .key { color: #777; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.05em; }
 .value { color: #eee; font-size: 0.9rem; }
 .value.sku { font-family: monospace; color: #e31837; font-size: 0.8rem; }

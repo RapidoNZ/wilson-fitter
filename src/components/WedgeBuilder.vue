@@ -4,11 +4,6 @@
       <h2>CUSTOM WEDGE BUILDER</h2>
 
       <div class="field">
-        <label>Customer / Order #</label>
-        <input v-model="customer" type="text" placeholder="Customer name or order #" />
-      </div>
-
-      <div class="field">
         <label>Dexterity</label>
         <div class="toggle">
           <button :class="{ active: dex === 'rh' }" @click="dex = 'rh'">RH</button>
@@ -116,7 +111,10 @@
 
     <div class="right-panel">
       <ImagePanel :items="imageItems" />
-      <BuildSummary :build="build" :notes="notes" :customer="customer" />
+      <BuildSummary :build="build" :notes="notes" />
+      <button class="add-btn" :disabled="!canAdd" @click="addToCart">
+        {{ canAdd ? 'Add to Order' : 'Complete selections to add' }}
+      </button>
     </div>
   </div>
 </template>
@@ -124,8 +122,12 @@
 <script setup>
 import { ref, computed } from 'vue'
 import { useWedgeBuilder } from '../composables/useWedgeBuilder'
+import { useOrder } from '../composables/useOrder'
 import ImagePanel from './ImagePanel.vue'
 import BuildSummary from './BuildSummary.vue'
+
+const emit = defineEmits(['added'])
+const { addItem } = useOrder()
 
 const {
   dex, selectedHead, selectedLoft, selectedBounce, selectedGrind,
@@ -138,7 +140,6 @@ const {
 } = useWedgeBuilder()
 
 const notes = ref('')
-const customer = ref('')
 
 const allFlexes = ['L', 'A', 'R', 'S', 'X']
 const gripSizeOptions = ['UNDERSIZE', 'STANDARD', 'MIDSIZE', 'OVERSIZE']
@@ -149,6 +150,16 @@ const imageItems = computed(() => [
   { label: 'Shaft', src: shaftImage.value },
   { label: 'Grip', src: gripImage.value },
 ])
+
+const canAdd = computed(() =>
+  !!build.value.head && !!build.value.shaft && !!build.value.grip && !!build.value.loft
+)
+
+function addToCart() {
+  if (!canAdd.value) return
+  addItem(build.value, { notes: notes.value })
+  emit('added')
+}
 </script>
 
 <style scoped>
@@ -175,6 +186,13 @@ h2 { font-size: 1rem; letter-spacing: 0.2em; margin-bottom: 1.5rem; color: #e318
 .toggle button.active { background: #e31837; border-color: #e31837; color: #fff; }
 .shaft-type-toggle { margin-bottom: 0.4rem; }
 .shaft-type-toggle button { padding: 0.35rem 0.8rem; font-size: 0.75rem; }
+.add-btn {
+  margin-top: 0.5rem; padding: 0.8rem 1rem; background: #e31837; color: #fff;
+  border: none; border-radius: 6px; font-family: inherit; font-size: 0.9rem;
+  letter-spacing: 0.1em; cursor: pointer; font-weight: 600;
+}
+.add-btn:disabled { background: #333; color: #666; cursor: not-allowed; }
+.add-btn:not(:disabled):hover { background: #c41530; }
 @media (max-width: 768px) {
   .builder { grid-template-columns: 1fr; }
 }
